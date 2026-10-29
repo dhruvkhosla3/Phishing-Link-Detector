@@ -1,0 +1,408 @@
+
+/* =========================================================
+   PHISHING DETECTOR — MATRIX CYBERSECURITY THEME
+   ========================================================= */
+
+:root {
+  --matrix-green: #00ffaa;
+  --matrix-green-light: #00ffcc;
+  --safe-green: #00ff88;
+  --danger-red: #ff3366;
+  --background: #000;
+  --panel-background: rgba(10, 10, 10, 0.88);
+  --input-background: #1a1a1a;
+  --muted-text: #888;
+  --border-color: rgba(0, 255, 170, 0.22);
+  --nav-height: 62px;
+  --glow: 0 0 12px rgba(0, 255, 170, 0.55);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Orbitron", monospace;
+  background: var(--background);
+  color: #fff;
+}
+
+/* =========================================================
+   MATRIX CANVAS
+   ========================================================= */
+
+canvas#matrix {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* =========================================================
+   PAGE LAYOUTS
+   ========================================================= */
+
+body.page-scanner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 82px 20px 30px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body.page-history {
+  display: block;
+  min-height: 100vh;
+  padding-top: var(--nav-height);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: var(--nav-height);
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 12px 24px;
+  background: rgba(5, 5, 5, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-brand {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--matrix-green);
+  text-decoration: none;
+  text-shadow: 0 0 8px var(--matrix-green);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 6px 0;
+
+  font-family: inherit;
+  font-size: 0.82rem;
+  color: var(--muted-text);
+  text-decoration: none;
+
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--matrix-green);
+}
+
+.nav-link.active {
+  border-bottom-color: var(--matrix-green);
+}
+
+.nav-link:focus-visible,
+.nav-brand:focus-visible {
+  outline: 2px solid var(--matrix-green);
+  outline-offset: 5px;
+}
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 410px;
+  margin: 0 auto;
+  padding: 35px;
+
+  text-align: center;
+  background: var(--panel-background);
+  border: 1px solid rgba(0, 255, 170, 0.08);
+  border-radius: 12px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 30px rgba(0, 255, 170, 0.05),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  margin-bottom: 8px;
+  color: #c5c5c5;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  animation: glitch 4s infinite;
+}
+
+/* =========================================================
+   URL INPUT
+   ========================================================= */
+
+.container input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 16px 0;
+
+  padding: 12px;
+  border: 1px solid rgba(0, 255, 170, 0.35);
+  border-radius: 6px;
+
+  background: var(--input-background);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+
+  box-shadow: inset 0 0 5px rgba(0, 255, 170, 0.35);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.container input::placeholder {
+  color: #858585;
+  opacity: 1;
+}
+
+.container input:focus {
+  outline: 2px solid transparent;
+  border-color: var(--matrix-green);
+
+  box-shadow:
+    0 0 12px rgba(0, 255, 170, 0.55),
+    inset 0 0 5px rgba(0, 255, 170, 0.3);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.container button {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 12px 20px;
+
+  border: 1px solid transparent;
+  border-radius: 6px;
+
+  background: var(--matrix-green);
+  color: #000;
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+  box-shadow: var(--glow);
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.container button:hover:not(:disabled) {
+  background: var(--matrix-green-light);
+  box-shadow:
+    0 0 20px rgba(0, 255, 170, 0.65),
+    inset 0 0 10px rgba(0, 255, 170, 0.15);
+  transform: translateY(-1px);
+}
+
+.container button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.container button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+.container button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  transform: none;
+}
+
+/* =========================================================
+   SCAN RESULT
+   ========================================================= */
+
+.result {
+  margin-top: 20px;
+  padding: 12px 8px;
+
+  font-size: 0.95rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+
+  border-radius: 6px;
+}
+
+.result:empty {
+  display: none;
+}
+
+.safe {
+  color: var(--safe-green);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.45);
+}
+
+.warning {
+  color: var(--danger-red);
+  text-shadow: 0 0 8px rgba(255, 51, 102, 0.35);
+}
+
+.loading {
+  color: var(--matrix-green);
+  text-shadow: 0 0 8px rgba(0, 255, 170, 0.35);
+}
+
+/* =========================================================
+   GLITCH ANIMATION
+   ========================================================= */
+
+@keyframes glitch {
+  0%, 94%, 100% {
+    text-shadow: none;
+    transform: none;
+  }
+
+  95% {
+    text-shadow: 2px 0 #ff3366, -2px 0 var(--matrix-green);
+    transform: skewX(1deg);
+  }
+
+  97% {
+    text-shadow: -2px 0 #ff3366, 2px 0 var(--matrix-green);
+    transform: skewX(-1deg);
+  }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 500px) {
+  :root {
+    --nav-height: 58px;
+  }
+
+  .site-nav {
+    padding: 10px 14px;
+    gap: 12px;
+  }
+
+  .nav-brand {
+    font-size: 0.8rem;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-link {
+    font-size: 0.72rem;
+  }
+
+  body.page-scanner {
+    padding: 78px 14px 24px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 26px 20px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .container input,
+  .container button {
+    font-size: 0.95rem;
+    padding: 11px;
+  }
+
+  .result {
+    font-size: 0.85rem;
+  }
+}
+
+/* =========================================================
+   SHORT SCREENS
+   ========================================================= */
+
+@media (max-height: 500px) {
+  body.page-scanner {
+    align-items: flex-start;
+    padding-top: 78px;
+    padding-bottom: 20px;
+  }
+
+  .container {
+    margin-top: 0;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+  }
+}
+
+/* Respect the user's motion preferences. */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Phishing Link Detector</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="about.css" />
+</head>
+<body class="page-about">
+
+<canvas id="matrix"></canvas>
+
+<!-- Navigation -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Phishing Detector</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Checker</a>
+    <a href="history.html" class="nav-link">History</a>
+    <a href="about.html" class="nav-link nav-info-btn active" title="About this project">&#x2139;</a>
+  </div>
+</nav>
+
+<main class="about-wrapper">
+
+  <!-- ── PROJECT INFO ─────────────────────────────────── -->
+  <section class="about-section" id="project">
+    <div class="section-label">// PROJECT</div>
+    <h1 class="about-title">Phishing Link Detector</h1>
+    <p class="about-subtitle">A real-time URL threat scanner powered by pattern-based analysis.</p>
+
+    <div class="info-grid">
+
+      <div class="info-card">
+        <div class="info-card-icon">&#x25CE;</div>
+        <h3>Purpose</h3>
+        <p>Instantly flag dangerous URLs containing known scam, gambling, fraud, phishing, and malware-related threat indicators — before you click.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-icon">&#x2699;</div>
+        <h3>How It Works</h3>
+        <p>The backend scans every part of a URL (domain, path, query) against 200+ compiled threat patterns. A single match returns an <strong>UNSAFE</strong> verdict with the exact indicators found.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-icon">&#x2BC0;</div>
+        <h3>Threat Categories</h3>
+        <p>Gambling &amp; rummy platforms · Financial fraud · Prize &amp; giveaway scams · Crypto &amp; NFT schemes · Account phishing · Malware &amp; piracy · Adult &amp; illegal content.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-icon">&#x25A4;</div>
+        <h3>Tech Stack</h3>
+        <p><strong>Backend:</strong> Python 3 · stdlib <code>http.server</code> · regex engine.<br/>
+           <strong>Frontend:</strong> Vanilla HTML / CSS / JavaScript.<br/>
+           <strong>No external dependencies.</strong></p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-icon">&#x2714;</div>
+        <h3>URL Validation</h3>
+        <p>Only URLs starting with <code>http://</code>, <code>https://</code>, or <code>www.</code> are accepted. Anything else is rejected before scanning begins.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-icon">&#x2630;</div>
+        <h3>Scan History</h3>
+        <p>Every check is logged locally in your browser. Filter by safe / unsafe / error, search by URL, and clear history at any time — no data leaves your device.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── DEVELOPER INFO ───────────────────────────────── -->
+  <section class="about-section" id="developer">
+    <div class="section-label">// DEVELOPER</div>
+
+    <div class="dev-card">
+
+      <div class="dev-photo-wrap">
+        <img
+          src="Dhruv profile.jpeg"
+          alt="Dhruv Khosla"
+          class="dev-photo"
+          onerror="this.style.display='none';document.getElementById('dev-avatar-fallback').style.display='flex';"
+        />
+        <div id="dev-avatar-fallback" class="dev-avatar-fallback" style="display:none;">DK</div>
+      </div>
+
+      <div class="dev-info">
+        <h2 class="dev-name">Dhruv Khosla</h2>
+        <p class="dev-tagline">BSc Computer Science Student</p>
+
+        <p class="dev-bio">
+          I'm a Computer Science student in my 3rd year, and I build things because I genuinely
+          enjoy it. I have a deep interest in cybersecurity and I love
+          turning that curiosity into practical tools that actually solve real problems. This
+          project is a good example of how I think: find something that matters, understand it
+          properly, then build something clean around it. I care a lot about writing efficient
+          code and getting the details right, whether that's the backend logic or how something
+          looks and feels on screen. I'm always learning, always debugging, and I'm at my best
+          when I'm shipping something that works.
+        </p>
+
+        <div class="dev-contacts">
+
+          <a href="mailto:dhruv.a.khosla@gmail.com" class="contact-chip" title="Send email">
+            <span class="contact-icon">&#x2709;</span>
+            <span>dhruv.a.khosla@gmail.com</span>
+          </a>
+
+          <a href="tel:+917030920639" class="contact-chip" title="Call">
+            <span class="contact-icon">&#x260E;</span>
+            <span>+91 70309 20639</span>
+          </a>
+
+          <a href="https://www.instagram.com/dhruv_forsure" target="_blank" rel="noopener noreferrer" class="contact-chip" title="Instagram">
+            <span class="contact-icon">&#x2764;</span>
+            <span>@dhruv_forsure</span>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

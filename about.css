@@ -1,0 +1,295 @@
+/* =========================================================
+   ABOUT PAGE — extends style.css
+   ========================================================= */
+
+body.page-about {
+  display: block;
+  min-height: 100vh;
+  padding-top: var(--nav-height);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* ── (i) button in nav ───────────────────────────────────── */
+
+.nav-info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--matrix-green) !important;
+  color: var(--matrix-green) !important;
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: Georgia, serif;   /* serif renders ℹ cleanly */
+  font-style: italic;
+  text-decoration: none;
+  line-height: 1;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  box-shadow: 0 0 6px rgba(0, 255, 170, 0.3);
+  border-bottom: 1.5px solid var(--matrix-green) !important;
+}
+
+.nav-info-btn:hover,
+.nav-info-btn.active {
+  background: var(--matrix-green);
+  color: #000 !important;
+  box-shadow: 0 0 16px rgba(0, 255, 170, 0.65);
+}
+
+/* ── Page wrapper ────────────────────────────────────────── */
+
+.about-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 28px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* ── Section ─────────────────────────────────────────────── */
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-label {
+  font-family: "Orbitron", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--matrix-green);
+  text-shadow: 0 0 8px rgba(0, 255, 170, 0.5);
+  text-transform: uppercase;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  animation: glitch 4s infinite;
+  line-height: 1.25;
+}
+
+.about-subtitle {
+  font-size: 1rem;
+  color: var(--muted-text);
+  font-family: Arial, sans-serif;
+  max-width: 560px;
+}
+
+/* ── Info grid ───────────────────────────────────────────── */
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+  gap: 18px;
+}
+
+.info-card {
+  background: var(--panel-background);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 22px 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.info-card:hover {
+  border-color: rgba(0, 255, 170, 0.45);
+  box-shadow: 0 0 18px rgba(0, 255, 170, 0.1);
+}
+
+.info-card-icon {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-family: "Segoe UI Symbol", "Apple Symbols", sans-serif;
+  color: var(--matrix-green);
+  line-height: 1;
+}
+
+.info-card h3 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--matrix-green);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.info-card p {
+  font-family: Arial, sans-serif;
+  font-size: 0.88rem;
+  color: #bbb;
+  line-height: 1.65;
+}
+
+.info-card p code {
+  font-size: 0.82rem;
+  background: rgba(0, 255, 170, 0.08);
+  color: var(--matrix-green);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.info-card p strong {
+  color: #ddd;
+}
+
+/* ── Developer card ──────────────────────────────────────── */
+
+.dev-card {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+  background: var(--panel-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 32px 28px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 30px rgba(0, 255, 170, 0.05);
+  flex-wrap: wrap;
+}
+
+/* Photo */
+
+.dev-photo-wrap {
+  flex-shrink: 0;
+}
+
+.dev-photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2.5px solid var(--matrix-green);
+  box-shadow: 0 0 18px rgba(0, 255, 170, 0.35);
+  display: block;
+}
+
+.dev-avatar-fallback {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2.5px solid var(--matrix-green);
+  box-shadow: 0 0 18px rgba(0, 255, 170, 0.35);
+  background: #111;
+  color: var(--matrix-green);
+  font-size: 2rem;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Info block */
+
+.dev-info {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dev-name {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #fff;
+  animation: glitch 5s infinite;
+}
+
+.dev-tagline {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--matrix-green);
+  text-shadow: 0 0 8px rgba(0, 255, 170, 0.4);
+}
+
+.dev-bio {
+  font-family: Arial, sans-serif;
+  font-size: 0.92rem;
+  color: #bbb;
+  line-height: 1.75;
+  max-width: 580px;
+}
+
+/* Contacts */
+
+.dev-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: rgba(0, 255, 170, 0.05);
+  color: #ccc;
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.contact-chip:hover {
+  border-color: var(--matrix-green);
+  background: rgba(0, 255, 170, 0.1);
+  color: var(--matrix-green);
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.2);
+}
+
+.contact-icon {
+  font-size: 0.95rem;
+  font-family: "Segoe UI Symbol", "Apple Symbols", sans-serif;
+  color: var(--matrix-green);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .about-wrapper {
+    padding: 32px 16px 56px;
+    gap: 48px;
+  }
+
+  .about-title {
+    font-size: 1.5rem;
+  }
+
+  .dev-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 18px;
+  }
+
+  .dev-contacts {
+    justify-content: center;
+  }
+
+  .dev-bio {
+    text-align: left;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}

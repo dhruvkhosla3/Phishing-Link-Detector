@@ -1,0 +1,364 @@
+/* ============================================================
+   history.css — History page styles
+   Extends the base design system in style.css (dark / neon-green)
+   ============================================================ */
+
+/* ── Nav overrides for history page layout ── */
+.history-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
+  /* push content below the fixed nav */
+  padding-top: 80px;
+}
+
+/* ── Header row ── */
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.history-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.history-title-group h2 {
+  font-size: 1.4rem;
+  color: #b7b7b7;
+  animation: none;   /* override glitch on this page */
+  white-space: nowrap;
+}
+
+.history-count-badge {
+  background: rgba(0, 255, 170, 0.12);
+  color: #00ffaa;
+  border: 1px solid rgba(0, 255, 170, 0.35);
+  border-radius: 20px;
+  padding: 2px 12px;
+  font-size: 0.78rem;
+  font-family: 'Orbitron', monospace;
+  white-space: nowrap;
+}
+
+/* ── Search bar ── */
+.search-wrap {
+  margin-bottom: 16px;
+}
+
+.history-search {
+  width: 100%;
+  padding: 11px 16px;
+  background: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: 'Orbitron', monospace;
+  box-shadow: inset 0 0 5px #00ffaa;
+  box-sizing: border-box;
+}
+
+.history-search:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00ffaa, inset 0 0 5px #00ffaa;
+}
+
+/* ── Filter bar ── */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #aaa;
+  padding: 7px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: 'Orbitron', monospace;
+  transition: all 0.2s;
+  box-shadow: none;
+  width: auto;
+}
+
+.filter-btn:hover {
+  border-color: #00ffaa;
+  color: #00ffaa;
+  background: rgba(0, 255, 170, 0.08);
+  box-shadow: none;
+}
+
+.filter-btn.active {
+  background: rgba(0, 255, 170, 0.15);
+  border-color: #00ffaa;
+  color: #00ffaa;
+  box-shadow: 0 0 8px rgba(0, 255, 170, 0.3);
+}
+
+/* ── History list ── */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Cards ── */
+.history-card {
+  background: rgba(15, 15, 15, 0.9);
+  border-radius: 10px;
+  padding: 16px 18px;
+  border-left: 4px solid #555;
+  backdrop-filter: blur(6px);
+  transition: transform 0.15s;
+}
+
+.history-card:hover {
+  transform: translateY(-2px);
+}
+
+.history-card.safe   { border-left-color: #00ff88; }
+.history-card.unsafe { border-left-color: #ff3366; }
+.history-card.error  { border-left-color: #ffaa00; }
+
+/* Card header */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.card-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.card-url {
+  flex: 1;
+  font-size: 0.92rem;
+  color: #e0e0e0;
+  word-break: break-all;
+  font-family: monospace;
+}
+
+/* Status badge */
+.card-badge {
+  font-size: 0.72rem;
+  font-family: 'Orbitron', monospace;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge-safe {
+  background: rgba(0, 255, 136, 0.12);
+  color: #00ff88;
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  text-shadow: 0 0 6px #00ff88;
+}
+
+.badge-unsafe {
+  background: rgba(255, 51, 102, 0.12);
+  color: #ff3366;
+  border: 1px solid rgba(255, 51, 102, 0.4);
+  text-shadow: 0 0 6px #ff3366;
+}
+
+.badge-error {
+  background: rgba(255, 170, 0, 0.12);
+  color: #ffaa00;
+  border: 1px solid rgba(255, 170, 0, 0.4);
+  text-shadow: 0 0 6px #ffaa00;
+}
+
+/* Card meta row */
+.card-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.meta-item {
+  white-space: nowrap;
+}
+
+/* Card detail */
+.card-detail {
+  font-size: 0.82rem;
+  color: #888;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 8px;
+  line-height: 1.5;
+}
+
+/* ── Empty state ── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #555;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.empty-state p {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.back-link {
+  color: #00ffaa;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.back-link:hover {
+  border-bottom-color: #00ffaa;
+}
+
+/* ── Danger button ── */
+.btn-danger {
+  background: rgba(255, 51, 102, 0.15);
+  border: 1px solid #ff3366;
+  color: #ff3366;
+  padding: 9px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: 'Orbitron', monospace;
+  transition: all 0.2s;
+  box-shadow: none;
+  width: auto;
+}
+
+.btn-danger:hover {
+  background: rgba(255, 51, 102, 0.28);
+  box-shadow: 0 0 10px rgba(255, 51, 102, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #ccc;
+  padding: 9px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: 'Orbitron', monospace;
+  transition: all 0.2s;
+  box-shadow: none;
+  width: auto;
+}
+
+.btn-secondary:hover {
+  border-color: #aaa;
+  color: #fff;
+}
+
+/* ── Confirmation modal ── */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.modal-backdrop.visible {
+  display: flex;
+}
+
+.modal-box {
+  background: #0f0f0f;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 30px 28px;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.modal-box h3 {
+  font-size: 1.1rem;
+  color: #ff3366;
+  margin-bottom: 12px;
+  text-shadow: 0 0 8px rgba(255, 51, 102, 0.5);
+}
+
+.modal-box p {
+  font-size: 0.88rem;
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .history-title-group h2 {
+    font-size: 1.15rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-badge {
+    align-self: flex-start;
+  }
+
+  .filter-bar {
+    gap: 6px;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.76rem;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+}

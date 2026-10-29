@@ -1,0 +1,2 @@
+# No third-party dependencies.
+# This project runs entirely on the Python standard library (Python 3.8+).

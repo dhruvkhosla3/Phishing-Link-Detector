@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scan History — Phishing Link Detector</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="history.css" />
+</head>
+<body class="page-history">
+
+<canvas id="matrix"></canvas>
+
+<!-- Navigation -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Phishing Detector</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Checker</a>
+    <a href="history.html" class="nav-link active">History</a>
+    <a href="about.html" class="nav-link nav-info-btn" title="About this project">&#x2139;</a>
+  </div>
+</nav>
+
+<!-- History Page -->
+<div id="history-page" class="history-wrapper">
+
+  <!-- Header row -->
+  <div class="history-header">
+    <div class="history-title-group">
+      <h2>Scan History</h2>
+      <span id="history-count" class="history-count-badge">No scans yet</span>
+    </div>
+    <button id="clear-history-btn" class="btn-danger">Clear History</button>
+  </div>
+
+  <!-- Search bar -->
+  <div class="search-wrap">
+    <input
+      type="text"
+      id="history-search"
+      class="history-search"
+      placeholder="Search by URL or detail..."
+      aria-label="Search history"
+    />
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="filter-bar" role="group" aria-label="Filter scans">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="safe">Safe</button>
+    <button class="filter-btn" data-filter="unsafe">Unsafe</button>
+    <button class="filter-btn" data-filter="error">Unknown / Error</button>
+  </div>
+
+  <!-- Entry list -->
+  <div id="history-list" class="history-list" aria-live="polite"></div>
+
+</div>
+
+<!-- Confirmation Modal -->
+<div id="confirm-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <h3 id="modal-title">Clear Scan History</h3>
+    <p>Are you sure you want to permanently clear your scan history? This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button id="modal-cancel" class="btn-secondary">Cancel</button>
+      <button id="modal-confirm" class="btn-danger">Yes, Clear All</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script src="history.js"></script>
+</body>
+</html>
